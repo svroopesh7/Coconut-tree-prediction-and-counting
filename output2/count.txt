@@ -1,0 +1,6 @@
+Coconut Tree Detection Results (test2.png)
+==========================================
+
+Total Trees Detected: 581
+Image: test2.png
+Detection Methods: YOLO + Contours + Watershed + Edges + Green
