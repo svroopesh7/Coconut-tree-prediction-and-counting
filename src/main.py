@@ -1,6 +1,6 @@
 """
 🌴 ULTRA-AGGRESSIVE COCONUT TREE DETECTION v3.0 🌴
-For test2.png → output2 directory
+Organized Project Structure
 """
 
 import os
@@ -11,6 +11,9 @@ import warnings
 from pathlib import Path
 from typing import Tuple, List
 from tqdm import tqdm
+
+# Add src to path for imports
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 warnings.filterwarnings('ignore')
 
@@ -28,9 +31,12 @@ from utils.ultra_aggressive import super_aggressive_detection
 
 class Config:
     """Configuration for test2.png detection."""
-    INPUT_DIR = "input"
-    OUTPUT_DIR = "output2"  # ← Output to output2
-    MODEL_DIR = "models"
+    # Get the root directory (parent of src)
+    ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    
+    INPUT_DIR = os.path.join(ROOT_DIR, "data", "input")
+    OUTPUT_DIR = os.path.join(ROOT_DIR, "results", "detected")
+    MODEL_DIR = os.path.join(ROOT_DIR, "data", "models")
     MODEL_NAME = "palm.pt"
     INPUT_IMAGE = "test2.png"  # ← Use test2.png
     OUTPUT_IMAGE = "detected.png"
@@ -76,7 +82,7 @@ def main():
     print("\n")
     print("╔════════════════════════════════════════════════════════╗")
     print("║ 🌴 ULTRA-AGGRESSIVE COCONUT DETECTION v3.0 🌴        ║")
-    print("║    Processing: test2.png → output2/                   ║")
+    print("║    Processing: test2.png → results/detected/          ║")
     print("╚════════════════════════════════════════════════════════╝")
     
     try:
